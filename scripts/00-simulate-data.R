@@ -19,14 +19,17 @@ library(tidyverse)
 #set RNG seed
 set.seed(69)
 
-num_days <- 1
+#create the hours for hourly data simulation
+timing <- c(0:23)
 
-#case study of one region for one day
+#set variables for number of days and number of wards. The case study will be one day and one ward
+num_days <- 1
+num_wards <- 1
 
 raccoon_appear <- tibble(
   # date: set a date range and load it sequentially
-  hour = 0:23, #hourly data
-  # ward_id #set it for now, but load it like, 1-13
+  hour = rep(timing, times = num_days),
+  # ward_id (something to figure out)
   units_observed = case_when(hour < 4 | hour > 20 ~ rpois(n=num_days*24, lambda = 15), .default = rpois(n=num_days*24, lambda = 0.8))  #number of units spotted, based on hour  
 )
 
