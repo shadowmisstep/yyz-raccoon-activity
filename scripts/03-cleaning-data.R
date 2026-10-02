@@ -44,14 +44,14 @@ scrp <- raccoon |> dplyr::filter(ward_id==25)
 
 #create a total hourly average of appearances etc. across the city
 yyzhourly <- aggregate(raccoon$units_observed, by = list(raccoon$hour), FUN = mean)
-rename(yyzhourly, hour = Group.1, avg_units_observed = x)
+yyzhourly <- rename(yyzhourly, hour = Group.1, avg_units_observed = x)
 
 #export dataset
 write.csv(yyzhourly, file = "~/yyz-raccoon-activity/data/yyz_hourly_avg.csv")
 
 #creating hourly averages across each ward
 yyzwardlyhourly <- aggregate(raccoon$units_observed, by = list(raccoon$hour, raccoon$ward_name), FUN = mean)
-rename(yyzwardlyhourly, hour = Group.1, ward_name = Group.2, avg_units_observed = x)
+yyzwardlyhourly <- rename(yyzwardlyhourly, hour = Group.1, ward_name = Group.2, avg_units_observed = x)
 
 #export dataset
 write.csv(yyzwardlyhourly, file = "~/yyz-raccoon-activity/data/yyz_hourly_avg_by_ward.csv")
