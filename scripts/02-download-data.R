@@ -13,4 +13,4 @@ raccoon <- list_package_resources("932c7dc1-d5c3-4740-995b-b5565d482584") %>% ge
 
 #save raw data
 
-write_csv(raccoon, file = "data/raw_data/raw_raccoon.csv")
+write.csv(raccoon, file = "~/yyz-raccoon-activity/data/raw_raccoon.csv")
