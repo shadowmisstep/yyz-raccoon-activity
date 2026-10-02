@@ -1,0 +1,13 @@
+---
+title: "The Toronto Raccoon Activity Index"
+subtitle: "A Serious Exploration of a Joke Dataset"
+author: - Lewis Sang
+date: today
+date-format: long
+abstract: "I'll write it"
+format: pdf
+number-sections: true
+bibliography: references.bib
+---
+
+# packages to install: tidyverse
