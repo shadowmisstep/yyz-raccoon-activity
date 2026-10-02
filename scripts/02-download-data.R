@@ -1,3 +1,12 @@
+###Preamble###
+
+#Purpose: Downloading the necessary datasets from Open Data Toronto
+#Author: Lewis Sang
+#Contact: lewis.sang@mail.utoronto.ca
+#Date: October 1, 2026
+#License: MIT
+#Pre-reqs: opendatatoronto and tidyverse installed
+
 library(opendatatoronto)
 library(tidyverse)
 library(dplyr)

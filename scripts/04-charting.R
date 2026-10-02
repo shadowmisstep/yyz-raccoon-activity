@@ -1,3 +1,20 @@
+###Preamble###
+
+#Purpose: Creating charts based off the Raccoon Activity Index
+#Author: Lewis Sang
+#Contact: lewis.sang@mail.utoronto.ca
+#Date: October 1, 2026
+#License: MIT
+#Pre-reqs: tidyverse installed
+
+library(ggplot2)
+
+#import datasets
+library(readr)
+raw_raccoon <- read_csv("data/raw_raccoon.csv")
+yyzhourly <- read_csv("data/yyz_hourly_avg.csv")
+yyzwardlyhourly <- read_csv("data/yyz_hourly_avg_by_ward.csv")
+
 # scatterplot of number of raccoons vs bins compromised
 ggplot(raw_raccoon, aes(x=units_observed, y=bins_compromised)) + geom_point()
 

@@ -1,4 +1,11 @@
-#sorting and categorising data based on different groups to make dataviz easier
+###Preamble###
+
+#Purpose: Cleaning and categorising data from the Raccoon Activity Index, as well as creating specific subsets for analysis
+#Author: Lewis Sang
+#Contact: lewis.sang@mail.utoronto.ca
+#Date: October 1, 2026
+#License: MIT
+#Pre-reqs: tidyverse installed
 
 library(readr)
 library(tidyverse)
@@ -34,7 +41,7 @@ scrp <- raccoon |> dplyr::filter(ward_id==25)
 
 #create a ward list
 
-#wards <- [etonorth, etocentre, etolake, parkhp, yorksw, yorkcentre, hrbc, egllaw, dave, spafy, uniros, yyzstp, yyzcentre, yyzdan, donwest, doneast, donnorth, wil, beaeast, scsw, sccentre, scagin, scnorth, scgw, scrp]
+#wards <- c(etonorth, etocentre, etolake, parkhp, yorksw, yorkcentre, hrbc, egllaw, dave, spafy, uniros, yyzstp, yyzcentre, yyzdan, donwest, doneast, donnorth, wil, beaeast, scsw, sccentre, scagin, scnorth, scgw, scrp)
 
 #export all these wards as datasets for posterity (I'm giving up on the for loop for now)
 #for (ward in wards) {
