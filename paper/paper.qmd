@@ -1,13 +1,64 @@
 ---
 title: "The Toronto Raccoon Activity Index"
 subtitle: "A Serious Exploration of a Joke Dataset"
-author: - Lewis Sang
-date: today
+author: Lewis Sang
+thanks: "View the code and datasets at https://github.com/shadowmisstep/yyz-raccoon-activity"
+date: 2026-10-01
 date-format: long
 abstract: "I'll write it"
 format: pdf
 number-sections: true
-bibliography: references.bib
 ---
 
-# packages to install: tidyverse
+```{r}
+#| label: load-packages
+#| include: false
+
+library(tidyverse)
+library(paletteer)
+library(tinytex)
+```
+
+# Introduction
+
+The raccoon (*Procyon lotor*) is a mammal native to North America. While predominately located on the East coast and the Great Lakes regions, raccoon populations have spread rapidly across the continent since the introduction of European colonists and the fur trade. Notably, they have found considerable success in metropolitan areas, due to factors such as readily available food sources like waste bins and gardens, accessible habitats in housing and buildings, and a lack of natural predators. However, raccoons also pose risks to their neighbours, as they commonly carry diseases such as rabies and *Baylisascaris procyonis*, both of which cause severe neurological harm in humans. Moreover, raccoons nesting often cause dangerous and costly property damage.
+
+In Toronto, the raccoon is a divisive figure. The "raccoon problem" is one that has plagued Toronto City Council, with a number of mayors investing in methods of population control, "raccoon-proof" garbage bins, and even floating the possibility of extermination programs. Conversely, Conrad - a dead raccoon left on a sidewalk for fourteen hours that became a national media sensation - was memorialised with a heritage plaque on the corner of Yonge and Church on the eve of his tenth anniversary in 2025. The raccoon is seen as a symbol of adaptability, resilience, and part of life in the Greater Toronto Area (GTA) - so much so that City of Toronto's Open Data team released a Toronto Raccoon Activity Index (TRAI) dataset on April 1, 2026, describing the raccoon as a "prominent feature of Toronto's urban environment" that necessitated detailed, hourly observations across the 25 wards of the city. While the TRAI is ostensibly a joke and likely randomly generated, its mere existence symbolises the complex relationship between the raccoons and the citizens of Toronto. As a deliberately generated dataset, the TRAI also reflects
+
+This project
+
+# Data
+
+This paper utilises two datasets obtained through the OpenDataToronto Library - the Toronto Raccoon Activity Index, and the 2021 One Variable sheet from the Ward Profiles (25-Ward Model) dataset. Data was extracted using `R` and the `opendatatoronto` library, and cleaned using the `tidyverse` package.
+
+## The Toronto Raccoon Activity Index
+
+### Raccoon Activity
+
+The TRAI details hourly raccoon appearances across the 25 wards of the GTA from January 1 to March 30 of 2024 (@tbl-1hr-25wrd). Additionally, the TRAI records the number of compromised green compost bins, average raccoon weight in kilograms, and the raccoon's "confidence."
+
+```{r}
+#| label: tbl-1hr-25wrd
+#| echo: false
+#| message: false
+#| tbl-cap: Raccoon Activity at January 1, 2024 00:00
+
+library(knitr)
+
+raccoon <- read_csv("~/yyz-raccoon-activity/data/raw_raccoon.csv")
+
+activity_summary <- raccoon[c(6,7,8,9,10)]
+
+activity_summary_hr <- activity_summary[1:25,]
+
+kable(head(activity_summary, n=25), format = "pipe", col.names = c("Ward", "Units Observed", "Bins Compromised", "Raccoon Confidence", "Average Weight (kg)"))
+
+```
+
+This data can be aggregated across a number of categories, such as creating an average of raccoon observations per hour, or the daily average raccoon appearances in the quarter.
+
+### Raccoon-Human Interactions
+
+## Ward Profiles
+
+The Ward Profiles dataset is based on the 2021 Census of Population conducted by the Government of Canada.

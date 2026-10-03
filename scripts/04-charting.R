@@ -14,6 +14,7 @@ library(readr)
 raw_raccoon <- read_csv("data/raw_raccoon.csv")
 yyzhourly <- read_csv("data/yyz_hourly_avg.csv")
 yyzwardlyhourly <- read_csv("data/yyz_hourly_avg_by_ward.csv")
+yyzdaily <- read_csv("data/yyz_daily_avg.csv")
 
 # scatterplot of number of raccoons vs bins compromised
 ggplot(raw_raccoon, aes(x=units_observed, y=bins_compromised)) + geom_point()
@@ -26,3 +27,6 @@ ggplot(yyzhourly, aes(x=hour, y=avg_units_observed)) + geom_line()
 
 # line chart of average raccoon sighting per hour per ward
 ggplot(yyzwardlyhourly, aes(x=hour, y=avg_units_observed, color = ward_name)) + geom_line()
+
+# line chart of average raccoon sightings per day across yyz
+ggplot(yyzdaily, aes(x=date, y=avg_units_observed)) + geom_line() + lims(y=c(0,8))

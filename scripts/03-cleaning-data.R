@@ -63,8 +63,11 @@ yyzwardlyhourly <- rename(yyzwardlyhourly, hour = Group.1, ward_name = Group.2, 
 #export dataset
 write.csv(yyzwardlyhourly, file = "~/yyz-raccoon-activity/data/yyz_hourly_avg_by_ward.csv")
 
+#create a daily city-wide average of raccoon appearances per day
+yyzdaily <- aggregate(raccoon$units_observed, by = list(raccoon$date), FUN = mean)
+yyzdaily <- rename(yyzdaily, date = Group.1, avg_units_observed = x)
 
-
-
+#export dataset
+write.csv(yyzdaily, file = "~/yyz-raccoon-activity/data/yyz_daily_avg.csv")
 
 
