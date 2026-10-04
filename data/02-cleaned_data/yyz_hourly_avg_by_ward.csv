@@ -1,0 +1,601 @@
+"","hour","ward_name","avg_units_observed"
+"1",0,"Beaches-East York",17.1666666666667
+"2",1,"Beaches-East York",17.1
+"3",2,"Beaches-East York",16.9222222222222
+"4",3,"Beaches-East York",17.3
+"5",4,"Beaches-East York",2.97777777777778
+"6",5,"Beaches-East York",2.95555555555556
+"7",6,"Beaches-East York",2.98888888888889
+"8",7,"Beaches-East York",2.64444444444444
+"9",8,"Beaches-East York",2.94444444444444
+"10",9,"Beaches-East York",2.96666666666667
+"11",10,"Beaches-East York",2.88888888888889
+"12",11,"Beaches-East York",2.85555555555556
+"13",12,"Beaches-East York",3.2
+"14",13,"Beaches-East York",2.83333333333333
+"15",14,"Beaches-East York",2.86666666666667
+"16",15,"Beaches-East York",2.77777777777778
+"17",16,"Beaches-East York",2.86666666666667
+"18",17,"Beaches-East York",3.17777777777778
+"19",18,"Beaches-East York",3
+"20",19,"Beaches-East York",3.24444444444444
+"21",20,"Beaches-East York",3.26666666666667
+"22",21,"Beaches-East York",17.1
+"23",22,"Beaches-East York",17.1666666666667
+"24",23,"Beaches-East York",17.4111111111111
+"25",0,"Davenport",18.3666666666667
+"26",1,"Davenport",18.8444444444444
+"27",2,"Davenport",18.7888888888889
+"28",3,"Davenport",18.7555555555556
+"29",4,"Davenport",2.96666666666667
+"30",5,"Davenport",3.4
+"31",6,"Davenport",2.93333333333333
+"32",7,"Davenport",2.96666666666667
+"33",8,"Davenport",3.4
+"34",9,"Davenport",3.11111111111111
+"35",10,"Davenport",2.88888888888889
+"36",11,"Davenport",3.1
+"37",12,"Davenport",3.36666666666667
+"38",13,"Davenport",3
+"39",14,"Davenport",3.27777777777778
+"40",15,"Davenport",3.13333333333333
+"41",16,"Davenport",3.24444444444444
+"42",17,"Davenport",3.31111111111111
+"43",18,"Davenport",2.96666666666667
+"44",19,"Davenport",3.35555555555556
+"45",20,"Davenport",3.12222222222222
+"46",21,"Davenport",18.4555555555556
+"47",22,"Davenport",18.3111111111111
+"48",23,"Davenport",18.8333333333333
+"49",0,"Don Valley East",13.3444444444444
+"50",1,"Don Valley East",13.1111111111111
+"51",2,"Don Valley East",12.9222222222222
+"52",3,"Don Valley East",13.4444444444444
+"53",4,"Don Valley East",2.06666666666667
+"54",5,"Don Valley East",2.15555555555556
+"55",6,"Don Valley East",2.11111111111111
+"56",7,"Don Valley East",2.35555555555556
+"57",8,"Don Valley East",2.3
+"58",9,"Don Valley East",2.26666666666667
+"59",10,"Don Valley East",2.07777777777778
+"60",11,"Don Valley East",2.22222222222222
+"61",12,"Don Valley East",2.4
+"62",13,"Don Valley East",2.1
+"63",14,"Don Valley East",2.44444444444444
+"64",15,"Don Valley East",1.88888888888889
+"65",16,"Don Valley East",2.63333333333333
+"66",17,"Don Valley East",2.22222222222222
+"67",18,"Don Valley East",2.24444444444444
+"68",19,"Don Valley East",2.18888888888889
+"69",20,"Don Valley East",2.13333333333333
+"70",21,"Don Valley East",13.5222222222222
+"71",22,"Don Valley East",13.2666666666667
+"72",23,"Don Valley East",13.2888888888889
+"73",0,"Don Valley North",13.1444444444444
+"74",1,"Don Valley North",13.3777777777778
+"75",2,"Don Valley North",13.3444444444444
+"76",3,"Don Valley North",13.3444444444444
+"77",4,"Don Valley North",2.32222222222222
+"78",5,"Don Valley North",2.14444444444444
+"79",6,"Don Valley North",2.48888888888889
+"80",7,"Don Valley North",2.2
+"81",8,"Don Valley North",2.08888888888889
+"82",9,"Don Valley North",2.43333333333333
+"83",10,"Don Valley North",2.05555555555556
+"84",11,"Don Valley North",2.17777777777778
+"85",12,"Don Valley North",2.57777777777778
+"86",13,"Don Valley North",2.2
+"87",14,"Don Valley North",2.11111111111111
+"88",15,"Don Valley North",2.33333333333333
+"89",16,"Don Valley North",1.94444444444444
+"90",17,"Don Valley North",2.22222222222222
+"91",18,"Don Valley North",2.37777777777778
+"92",19,"Don Valley North",2.31111111111111
+"93",20,"Don Valley North",2.03333333333333
+"94",21,"Don Valley North",13.1
+"95",22,"Don Valley North",12.8777777777778
+"96",23,"Don Valley North",13.0888888888889
+"97",0,"Don Valley West",13.3333333333333
+"98",1,"Don Valley West",12.9333333333333
+"99",2,"Don Valley West",13.0333333333333
+"100",3,"Don Valley West",12.9888888888889
+"101",4,"Don Valley West",2.13333333333333
+"102",5,"Don Valley West",2.42222222222222
+"103",6,"Don Valley West",2.22222222222222
+"104",7,"Don Valley West",2.11111111111111
+"105",8,"Don Valley West",1.95555555555556
+"106",9,"Don Valley West",2.06666666666667
+"107",10,"Don Valley West",2.41111111111111
+"108",11,"Don Valley West",2.16666666666667
+"109",12,"Don Valley West",2.25555555555556
+"110",13,"Don Valley West",2.61111111111111
+"111",14,"Don Valley West",2.21111111111111
+"112",15,"Don Valley West",2.1
+"113",16,"Don Valley West",2.14444444444444
+"114",17,"Don Valley West",2.34444444444444
+"115",18,"Don Valley West",2.06666666666667
+"116",19,"Don Valley West",2.05555555555556
+"117",20,"Don Valley West",2.34444444444444
+"118",21,"Don Valley West",12.8888888888889
+"119",22,"Don Valley West",13.2
+"120",23,"Don Valley West",13
+"121",0,"Eglinton-Lawrence",13.3222222222222
+"122",1,"Eglinton-Lawrence",13.2888888888889
+"123",2,"Eglinton-Lawrence",13.1111111111111
+"124",3,"Eglinton-Lawrence",12.9444444444444
+"125",4,"Eglinton-Lawrence",1.93333333333333
+"126",5,"Eglinton-Lawrence",2.26666666666667
+"127",6,"Eglinton-Lawrence",2.42222222222222
+"128",7,"Eglinton-Lawrence",1.93333333333333
+"129",8,"Eglinton-Lawrence",2.33333333333333
+"130",9,"Eglinton-Lawrence",2.44444444444444
+"131",10,"Eglinton-Lawrence",2.08888888888889
+"132",11,"Eglinton-Lawrence",2.44444444444444
+"133",12,"Eglinton-Lawrence",2.51111111111111
+"134",13,"Eglinton-Lawrence",1.93333333333333
+"135",14,"Eglinton-Lawrence",2.46666666666667
+"136",15,"Eglinton-Lawrence",2.44444444444444
+"137",16,"Eglinton-Lawrence",2.07777777777778
+"138",17,"Eglinton-Lawrence",2.41111111111111
+"139",18,"Eglinton-Lawrence",2.31111111111111
+"140",19,"Eglinton-Lawrence",2.15555555555556
+"141",20,"Eglinton-Lawrence",2.42222222222222
+"142",21,"Eglinton-Lawrence",13.2111111111111
+"143",22,"Eglinton-Lawrence",12.8888888888889
+"144",23,"Eglinton-Lawrence",12.8555555555556
+"145",0,"Etobicoke-Lakeshore",16.1
+"146",1,"Etobicoke-Lakeshore",15.9666666666667
+"147",2,"Etobicoke-Lakeshore",15.8222222222222
+"148",3,"Etobicoke-Lakeshore",15.9888888888889
+"149",4,"Etobicoke-Lakeshore",2.68888888888889
+"150",5,"Etobicoke-Lakeshore",2.88888888888889
+"151",6,"Etobicoke-Lakeshore",3.06666666666667
+"152",7,"Etobicoke-Lakeshore",3.02222222222222
+"153",8,"Etobicoke-Lakeshore",2.63333333333333
+"154",9,"Etobicoke-Lakeshore",2.64444444444444
+"155",10,"Etobicoke-Lakeshore",2.46666666666667
+"156",11,"Etobicoke-Lakeshore",2.48888888888889
+"157",12,"Etobicoke-Lakeshore",2.7
+"158",13,"Etobicoke-Lakeshore",3.11111111111111
+"159",14,"Etobicoke-Lakeshore",2.91111111111111
+"160",15,"Etobicoke-Lakeshore",3.02222222222222
+"161",16,"Etobicoke-Lakeshore",3.03333333333333
+"162",17,"Etobicoke-Lakeshore",2.52222222222222
+"163",18,"Etobicoke-Lakeshore",2.63333333333333
+"164",19,"Etobicoke-Lakeshore",2.44444444444444
+"165",20,"Etobicoke-Lakeshore",2.82222222222222
+"166",21,"Etobicoke-Lakeshore",15.7666666666667
+"167",22,"Etobicoke-Lakeshore",15.6333333333333
+"168",23,"Etobicoke-Lakeshore",16.0555555555556
+"169",0,"Etobicoke Centre",13.3
+"170",1,"Etobicoke Centre",13.6444444444444
+"171",2,"Etobicoke Centre",13.1888888888889
+"172",3,"Etobicoke Centre",12.9777777777778
+"173",4,"Etobicoke Centre",2.38888888888889
+"174",5,"Etobicoke Centre",2.22222222222222
+"175",6,"Etobicoke Centre",1.9
+"176",7,"Etobicoke Centre",2.42222222222222
+"177",8,"Etobicoke Centre",2.24444444444444
+"178",9,"Etobicoke Centre",2.17777777777778
+"179",10,"Etobicoke Centre",2.28888888888889
+"180",11,"Etobicoke Centre",2.31111111111111
+"181",12,"Etobicoke Centre",2.15555555555556
+"182",13,"Etobicoke Centre",2.2
+"183",14,"Etobicoke Centre",2.44444444444444
+"184",15,"Etobicoke Centre",2.4
+"185",16,"Etobicoke Centre",2.31111111111111
+"186",17,"Etobicoke Centre",2.15555555555556
+"187",18,"Etobicoke Centre",2.44444444444444
+"188",19,"Etobicoke Centre",2.03333333333333
+"189",20,"Etobicoke Centre",2.24444444444444
+"190",21,"Etobicoke Centre",12.8888888888889
+"191",22,"Etobicoke Centre",12.9444444444444
+"192",23,"Etobicoke Centre",13.1666666666667
+"193",0,"Etobicoke North",13.3111111111111
+"194",1,"Etobicoke North",13.2777777777778
+"195",2,"Etobicoke North",13
+"196",3,"Etobicoke North",13.2333333333333
+"197",4,"Etobicoke North",2.3
+"198",5,"Etobicoke North",2.16666666666667
+"199",6,"Etobicoke North",2.17777777777778
+"200",7,"Etobicoke North",2.15555555555556
+"201",8,"Etobicoke North",2.13333333333333
+"202",9,"Etobicoke North",2.15555555555556
+"203",10,"Etobicoke North",2.53333333333333
+"204",11,"Etobicoke North",2.32222222222222
+"205",12,"Etobicoke North",2.37777777777778
+"206",13,"Etobicoke North",2.47777777777778
+"207",14,"Etobicoke North",2.56666666666667
+"208",15,"Etobicoke North",2.46666666666667
+"209",16,"Etobicoke North",2.14444444444444
+"210",17,"Etobicoke North",1.65555555555556
+"211",18,"Etobicoke North",2.56666666666667
+"212",19,"Etobicoke North",2.35555555555556
+"213",20,"Etobicoke North",2.2
+"214",21,"Etobicoke North",13.1888888888889
+"215",22,"Etobicoke North",13.3333333333333
+"216",23,"Etobicoke North",13.0666666666667
+"217",0,"Humber River-Black Creek",12.6888888888889
+"218",1,"Humber River-Black Creek",13.0222222222222
+"219",2,"Humber River-Black Creek",13.3
+"220",3,"Humber River-Black Creek",13.0777777777778
+"221",4,"Humber River-Black Creek",2.41111111111111
+"222",5,"Humber River-Black Creek",2.68888888888889
+"223",6,"Humber River-Black Creek",2.23333333333333
+"224",7,"Humber River-Black Creek",2.17777777777778
+"225",8,"Humber River-Black Creek",2.27777777777778
+"226",9,"Humber River-Black Creek",2.42222222222222
+"227",10,"Humber River-Black Creek",2.4
+"228",11,"Humber River-Black Creek",2.25555555555556
+"229",12,"Humber River-Black Creek",2
+"230",13,"Humber River-Black Creek",2.23333333333333
+"231",14,"Humber River-Black Creek",2.43333333333333
+"232",15,"Humber River-Black Creek",2.48888888888889
+"233",16,"Humber River-Black Creek",2.06666666666667
+"234",17,"Humber River-Black Creek",2.2
+"235",18,"Humber River-Black Creek",2.26666666666667
+"236",19,"Humber River-Black Creek",2.12222222222222
+"237",20,"Humber River-Black Creek",2.04444444444444
+"238",21,"Humber River-Black Creek",13.1666666666667
+"239",22,"Humber River-Black Creek",12.9222222222222
+"240",23,"Humber River-Black Creek",12.9666666666667
+"241",0,"Parkdale-High Park",23.9222222222222
+"242",1,"Parkdale-High Park",24.0555555555556
+"243",2,"Parkdale-High Park",23.7666666666667
+"244",3,"Parkdale-High Park",23.9777777777778
+"245",4,"Parkdale-High Park",4.3
+"246",5,"Parkdale-High Park",4.57777777777778
+"247",6,"Parkdale-High Park",4.14444444444444
+"248",7,"Parkdale-High Park",4.15555555555556
+"249",8,"Parkdale-High Park",3.97777777777778
+"250",9,"Parkdale-High Park",4.38888888888889
+"251",10,"Parkdale-High Park",4.12222222222222
+"252",11,"Parkdale-High Park",4.05555555555556
+"253",12,"Parkdale-High Park",4.06666666666667
+"254",13,"Parkdale-High Park",4.03333333333333
+"255",14,"Parkdale-High Park",4.55555555555556
+"256",15,"Parkdale-High Park",4.36666666666667
+"257",16,"Parkdale-High Park",4.07777777777778
+"258",17,"Parkdale-High Park",4.02222222222222
+"259",18,"Parkdale-High Park",4.28888888888889
+"260",19,"Parkdale-High Park",4.18888888888889
+"261",20,"Parkdale-High Park",4.21111111111111
+"262",21,"Parkdale-High Park",23.6777777777778
+"263",22,"Parkdale-High Park",24.0777777777778
+"264",23,"Parkdale-High Park",23.8222222222222
+"265",0,"Scarborough-Agincourt",13.3444444444444
+"266",1,"Scarborough-Agincourt",13.2333333333333
+"267",2,"Scarborough-Agincourt",13.1777777777778
+"268",3,"Scarborough-Agincourt",13.1777777777778
+"269",4,"Scarborough-Agincourt",2.28888888888889
+"270",5,"Scarborough-Agincourt",2.55555555555556
+"271",6,"Scarborough-Agincourt",2.21111111111111
+"272",7,"Scarborough-Agincourt",2.3
+"273",8,"Scarborough-Agincourt",2.43333333333333
+"274",9,"Scarborough-Agincourt",2.47777777777778
+"275",10,"Scarborough-Agincourt",2.37777777777778
+"276",11,"Scarborough-Agincourt",2.33333333333333
+"277",12,"Scarborough-Agincourt",2.12222222222222
+"278",13,"Scarborough-Agincourt",2.37777777777778
+"279",14,"Scarborough-Agincourt",2.35555555555556
+"280",15,"Scarborough-Agincourt",2.2
+"281",16,"Scarborough-Agincourt",2.18888888888889
+"282",17,"Scarborough-Agincourt",2.15555555555556
+"283",18,"Scarborough-Agincourt",2.4
+"284",19,"Scarborough-Agincourt",2.41111111111111
+"285",20,"Scarborough-Agincourt",2.36666666666667
+"286",21,"Scarborough-Agincourt",12.7888888888889
+"287",22,"Scarborough-Agincourt",13.0666666666667
+"288",23,"Scarborough-Agincourt",12.9333333333333
+"289",0,"Scarborough-Guildwood",13.1444444444444
+"290",1,"Scarborough-Guildwood",13.4333333333333
+"291",2,"Scarborough-Guildwood",13.1888888888889
+"292",3,"Scarborough-Guildwood",13.4444444444444
+"293",4,"Scarborough-Guildwood",2.41111111111111
+"294",5,"Scarborough-Guildwood",2.34444444444444
+"295",6,"Scarborough-Guildwood",2.22222222222222
+"296",7,"Scarborough-Guildwood",2.06666666666667
+"297",8,"Scarborough-Guildwood",2.01111111111111
+"298",9,"Scarborough-Guildwood",2.13333333333333
+"299",10,"Scarborough-Guildwood",1.81111111111111
+"300",11,"Scarborough-Guildwood",1.91111111111111
+"301",12,"Scarborough-Guildwood",1.92222222222222
+"302",13,"Scarborough-Guildwood",2.11111111111111
+"303",14,"Scarborough-Guildwood",2.21111111111111
+"304",15,"Scarborough-Guildwood",2.26666666666667
+"305",16,"Scarborough-Guildwood",1.93333333333333
+"306",17,"Scarborough-Guildwood",2.24444444444444
+"307",18,"Scarborough-Guildwood",2.12222222222222
+"308",19,"Scarborough-Guildwood",2.16666666666667
+"309",20,"Scarborough-Guildwood",2.3
+"310",21,"Scarborough-Guildwood",12.9444444444444
+"311",22,"Scarborough-Guildwood",12.9666666666667
+"312",23,"Scarborough-Guildwood",13.0777777777778
+"313",0,"Scarborough-Rouge Park",13.3555555555556
+"314",1,"Scarborough-Rouge Park",13.3111111111111
+"315",2,"Scarborough-Rouge Park",13.1
+"316",3,"Scarborough-Rouge Park",13.4666666666667
+"317",4,"Scarborough-Rouge Park",2.21111111111111
+"318",5,"Scarborough-Rouge Park",2.06666666666667
+"319",6,"Scarborough-Rouge Park",2.4
+"320",7,"Scarborough-Rouge Park",2.23333333333333
+"321",8,"Scarborough-Rouge Park",2.35555555555556
+"322",9,"Scarborough-Rouge Park",2.08888888888889
+"323",10,"Scarborough-Rouge Park",1.97777777777778
+"324",11,"Scarborough-Rouge Park",2.03333333333333
+"325",12,"Scarborough-Rouge Park",2.15555555555556
+"326",13,"Scarborough-Rouge Park",2.32222222222222
+"327",14,"Scarborough-Rouge Park",2.34444444444444
+"328",15,"Scarborough-Rouge Park",2.3
+"329",16,"Scarborough-Rouge Park",2.08888888888889
+"330",17,"Scarborough-Rouge Park",2.37777777777778
+"331",18,"Scarborough-Rouge Park",1.93333333333333
+"332",19,"Scarborough-Rouge Park",2.02222222222222
+"333",20,"Scarborough-Rouge Park",2.27777777777778
+"334",21,"Scarborough-Rouge Park",13.0222222222222
+"335",22,"Scarborough-Rouge Park",13.2111111111111
+"336",23,"Scarborough-Rouge Park",12.8111111111111
+"337",0,"Scarborough Centre",12.7111111111111
+"338",1,"Scarborough Centre",13.0555555555556
+"339",2,"Scarborough Centre",13.2333333333333
+"340",3,"Scarborough Centre",13.1444444444444
+"341",4,"Scarborough Centre",2.44444444444444
+"342",5,"Scarborough Centre",2.8
+"343",6,"Scarborough Centre",2.43333333333333
+"344",7,"Scarborough Centre",2.16666666666667
+"345",8,"Scarborough Centre",2.16666666666667
+"346",9,"Scarborough Centre",2.42222222222222
+"347",10,"Scarborough Centre",2.23333333333333
+"348",11,"Scarborough Centre",1.98888888888889
+"349",12,"Scarborough Centre",2.37777777777778
+"350",13,"Scarborough Centre",2.13333333333333
+"351",14,"Scarborough Centre",2.01111111111111
+"352",15,"Scarborough Centre",2.24444444444444
+"353",16,"Scarborough Centre",2.15555555555556
+"354",17,"Scarborough Centre",2.02222222222222
+"355",18,"Scarborough Centre",2.03333333333333
+"356",19,"Scarborough Centre",1.91111111111111
+"357",20,"Scarborough Centre",2.2
+"358",21,"Scarborough Centre",13.1444444444444
+"359",22,"Scarborough Centre",13.2555555555556
+"360",23,"Scarborough Centre",13.4888888888889
+"361",0,"Scarborough North",12.8111111111111
+"362",1,"Scarborough North",13.2888888888889
+"363",2,"Scarborough North",12.9555555555556
+"364",3,"Scarborough North",12.9555555555556
+"365",4,"Scarborough North",2.22222222222222
+"366",5,"Scarborough North",2.12222222222222
+"367",6,"Scarborough North",2.16666666666667
+"368",7,"Scarborough North",2.12222222222222
+"369",8,"Scarborough North",2.1
+"370",9,"Scarborough North",2.25555555555556
+"371",10,"Scarborough North",2.62222222222222
+"372",11,"Scarborough North",2.25555555555556
+"373",12,"Scarborough North",2.16666666666667
+"374",13,"Scarborough North",2.34444444444444
+"375",14,"Scarborough North",2.48888888888889
+"376",15,"Scarborough North",2.3
+"377",16,"Scarborough North",2.25555555555556
+"378",17,"Scarborough North",2.07777777777778
+"379",18,"Scarborough North",2.45555555555556
+"380",19,"Scarborough North",2.26666666666667
+"381",20,"Scarborough North",2.16666666666667
+"382",21,"Scarborough North",13.3222222222222
+"383",22,"Scarborough North",12.2666666666667
+"384",23,"Scarborough North",13.5222222222222
+"385",0,"Scarborough Southwest",13.0444444444444
+"386",1,"Scarborough Southwest",13.2222222222222
+"387",2,"Scarborough Southwest",12.6888888888889
+"388",3,"Scarborough Southwest",12.8111111111111
+"389",4,"Scarborough Southwest",2.38888888888889
+"390",5,"Scarborough Southwest",2.36666666666667
+"391",6,"Scarborough Southwest",2.4
+"392",7,"Scarborough Southwest",2.56666666666667
+"393",8,"Scarborough Southwest",2.27777777777778
+"394",9,"Scarborough Southwest",2.13333333333333
+"395",10,"Scarborough Southwest",2.26666666666667
+"396",11,"Scarborough Southwest",2.46666666666667
+"397",12,"Scarborough Southwest",2.53333333333333
+"398",13,"Scarborough Southwest",2.16666666666667
+"399",14,"Scarborough Southwest",1.95555555555556
+"400",15,"Scarborough Southwest",2.53333333333333
+"401",16,"Scarborough Southwest",2.41111111111111
+"402",17,"Scarborough Southwest",2.46666666666667
+"403",18,"Scarborough Southwest",2.17777777777778
+"404",19,"Scarborough Southwest",2.2
+"405",20,"Scarborough Southwest",2.24444444444444
+"406",21,"Scarborough Southwest",13.2777777777778
+"407",22,"Scarborough Southwest",12.8111111111111
+"408",23,"Scarborough Southwest",13.1222222222222
+"409",0,"Spadina-Fort York",17.6
+"410",1,"Spadina-Fort York",17.1222222222222
+"411",2,"Spadina-Fort York",17.4333333333333
+"412",3,"Spadina-Fort York",17.2111111111111
+"413",4,"Spadina-Fort York",2.92222222222222
+"414",5,"Spadina-Fort York",2.61111111111111
+"415",6,"Spadina-Fort York",2.87777777777778
+"416",7,"Spadina-Fort York",2.71111111111111
+"417",8,"Spadina-Fort York",2.88888888888889
+"418",9,"Spadina-Fort York",2.95555555555556
+"419",10,"Spadina-Fort York",2.96666666666667
+"420",11,"Spadina-Fort York",2.78888888888889
+"421",12,"Spadina-Fort York",3.17777777777778
+"422",13,"Spadina-Fort York",2.92222222222222
+"423",14,"Spadina-Fort York",3.18888888888889
+"424",15,"Spadina-Fort York",2.5
+"425",16,"Spadina-Fort York",2.85555555555556
+"426",17,"Spadina-Fort York",2.93333333333333
+"427",18,"Spadina-Fort York",2.5
+"428",19,"Spadina-Fort York",2.92222222222222
+"429",20,"Spadina-Fort York",3.04444444444444
+"430",21,"Spadina-Fort York",17.1222222222222
+"431",22,"Spadina-Fort York",17.5777777777778
+"432",23,"Spadina-Fort York",17.4444444444444
+"433",0,"Toronto-Danforth",20.1111111111111
+"434",1,"Toronto-Danforth",19.8888888888889
+"435",2,"Toronto-Danforth",19.8222222222222
+"436",3,"Toronto-Danforth",20.1444444444444
+"437",4,"Toronto-Danforth",3.45555555555556
+"438",5,"Toronto-Danforth",3.23333333333333
+"439",6,"Toronto-Danforth",3.31111111111111
+"440",7,"Toronto-Danforth",3.47777777777778
+"441",8,"Toronto-Danforth",3.35555555555556
+"442",9,"Toronto-Danforth",3.27777777777778
+"443",10,"Toronto-Danforth",3.62222222222222
+"444",11,"Toronto-Danforth",3.21111111111111
+"445",12,"Toronto-Danforth",3.55555555555556
+"446",13,"Toronto-Danforth",3.28888888888889
+"447",14,"Toronto-Danforth",2.97777777777778
+"448",15,"Toronto-Danforth",3.3
+"449",16,"Toronto-Danforth",3.24444444444444
+"450",17,"Toronto-Danforth",3.46666666666667
+"451",18,"Toronto-Danforth",3.46666666666667
+"452",19,"Toronto-Danforth",3.65555555555556
+"453",20,"Toronto-Danforth",3.17777777777778
+"454",21,"Toronto-Danforth",19.9222222222222
+"455",22,"Toronto-Danforth",19.8888888888889
+"456",23,"Toronto-Danforth",20.3222222222222
+"457",0,"Toronto-St. Paul's",13.1
+"458",1,"Toronto-St. Paul's",13.3555555555556
+"459",2,"Toronto-St. Paul's",12.9888888888889
+"460",3,"Toronto-St. Paul's",12.7
+"461",4,"Toronto-St. Paul's",2.22222222222222
+"462",5,"Toronto-St. Paul's",2.21111111111111
+"463",6,"Toronto-St. Paul's",2.12222222222222
+"464",7,"Toronto-St. Paul's",2.34444444444444
+"465",8,"Toronto-St. Paul's",2.27777777777778
+"466",9,"Toronto-St. Paul's",1.87777777777778
+"467",10,"Toronto-St. Paul's",2.17777777777778
+"468",11,"Toronto-St. Paul's",2.15555555555556
+"469",12,"Toronto-St. Paul's",2.44444444444444
+"470",13,"Toronto-St. Paul's",2.11111111111111
+"471",14,"Toronto-St. Paul's",1.97777777777778
+"472",15,"Toronto-St. Paul's",2.33333333333333
+"473",16,"Toronto-St. Paul's",2.48888888888889
+"474",17,"Toronto-St. Paul's",2.05555555555556
+"475",18,"Toronto-St. Paul's",1.98888888888889
+"476",19,"Toronto-St. Paul's",2.26666666666667
+"477",20,"Toronto-St. Paul's",2.51111111111111
+"478",21,"Toronto-St. Paul's",13.0444444444444
+"479",22,"Toronto-St. Paul's",13.0333333333333
+"480",23,"Toronto-St. Paul's",13.1111111111111
+"481",0,"Toronto Centre",18.4666666666667
+"482",1,"Toronto Centre",18.4444444444444
+"483",2,"Toronto Centre",18.9666666666667
+"484",3,"Toronto Centre",18.4777777777778
+"485",4,"Toronto Centre",3.28888888888889
+"486",5,"Toronto Centre",3.05555555555556
+"487",6,"Toronto Centre",3.55555555555556
+"488",7,"Toronto Centre",3.28888888888889
+"489",8,"Toronto Centre",3.61111111111111
+"490",9,"Toronto Centre",3.13333333333333
+"491",10,"Toronto Centre",3.52222222222222
+"492",11,"Toronto Centre",3.02222222222222
+"493",12,"Toronto Centre",3.31111111111111
+"494",13,"Toronto Centre",3.47777777777778
+"495",14,"Toronto Centre",3.12222222222222
+"496",15,"Toronto Centre",2.9
+"497",16,"Toronto Centre",2.98888888888889
+"498",17,"Toronto Centre",3.63333333333333
+"499",18,"Toronto Centre",3.18888888888889
+"500",19,"Toronto Centre",3.2
+"501",20,"Toronto Centre",3.78888888888889
+"502",21,"Toronto Centre",18.9666666666667
+"503",22,"Toronto Centre",18.4777777777778
+"504",23,"Toronto Centre",18.8222222222222
+"505",0,"University-Rosedale",21.1111111111111
+"506",1,"University-Rosedale",21.5111111111111
+"507",2,"University-Rosedale",21.4444444444444
+"508",3,"University-Rosedale",21.6444444444444
+"509",4,"University-Rosedale",3.9
+"510",5,"University-Rosedale",3.7
+"511",6,"University-Rosedale",3.7
+"512",7,"University-Rosedale",3.82222222222222
+"513",8,"University-Rosedale",3.67777777777778
+"514",9,"University-Rosedale",3.82222222222222
+"515",10,"University-Rosedale",3.66666666666667
+"516",11,"University-Rosedale",3.55555555555556
+"517",12,"University-Rosedale",3.82222222222222
+"518",13,"University-Rosedale",3.63333333333333
+"519",14,"University-Rosedale",3.38888888888889
+"520",15,"University-Rosedale",3.71111111111111
+"521",16,"University-Rosedale",3.75555555555556
+"522",17,"University-Rosedale",4.01111111111111
+"523",18,"University-Rosedale",3.84444444444444
+"524",19,"University-Rosedale",3.41111111111111
+"525",20,"University-Rosedale",3.66666666666667
+"526",21,"University-Rosedale",21.2333333333333
+"527",22,"University-Rosedale",21.4777777777778
+"528",23,"University-Rosedale",21.3222222222222
+"529",0,"Willowdale",13.3777777777778
+"530",1,"Willowdale",12.9888888888889
+"531",2,"Willowdale",13.0444444444444
+"532",3,"Willowdale",13.1
+"533",4,"Willowdale",2.1
+"534",5,"Willowdale",2.76666666666667
+"535",6,"Willowdale",2.4
+"536",7,"Willowdale",2.17777777777778
+"537",8,"Willowdale",2.17777777777778
+"538",9,"Willowdale",2.47777777777778
+"539",10,"Willowdale",2.62222222222222
+"540",11,"Willowdale",2.25555555555556
+"541",12,"Willowdale",2.26666666666667
+"542",13,"Willowdale",2.28888888888889
+"543",14,"Willowdale",2.34444444444444
+"544",15,"Willowdale",2.46666666666667
+"545",16,"Willowdale",2.21111111111111
+"546",17,"Willowdale",2.65555555555556
+"547",18,"Willowdale",2.4
+"548",19,"Willowdale",2.33333333333333
+"549",20,"Willowdale",2.35555555555556
+"550",21,"Willowdale",13.3222222222222
+"551",22,"Willowdale",13.2333333333333
+"552",23,"Willowdale",13.0888888888889
+"553",0,"York Centre",13.0555555555556
+"554",1,"York Centre",13.2222222222222
+"555",2,"York Centre",13.3555555555556
+"556",3,"York Centre",13.1888888888889
+"557",4,"York Centre",2.3
+"558",5,"York Centre",2.12222222222222
+"559",6,"York Centre",2.33333333333333
+"560",7,"York Centre",1.9
+"561",8,"York Centre",2.44444444444444
+"562",9,"York Centre",2.33333333333333
+"563",10,"York Centre",2.13333333333333
+"564",11,"York Centre",2.43333333333333
+"565",12,"York Centre",2.44444444444444
+"566",13,"York Centre",2.36666666666667
+"567",14,"York Centre",2.23333333333333
+"568",15,"York Centre",2.02222222222222
+"569",16,"York Centre",2.11111111111111
+"570",17,"York Centre",2.4
+"571",18,"York Centre",2.58888888888889
+"572",19,"York Centre",2.25555555555556
+"573",20,"York Centre",2.3
+"574",21,"York Centre",13.2111111111111
+"575",22,"York Centre",13.4333333333333
+"576",23,"York Centre",13.0444444444444
+"577",0,"York South-Weston",12.9555555555556
+"578",1,"York South-Weston",13.1555555555556
+"579",2,"York South-Weston",13.4444444444444
+"580",3,"York South-Weston",13.0333333333333
+"581",4,"York South-Weston",2.34444444444444
+"582",5,"York South-Weston",2.02222222222222
+"583",6,"York South-Weston",2
+"584",7,"York South-Weston",2.36666666666667
+"585",8,"York South-Weston",1.94444444444444
+"586",9,"York South-Weston",2.34444444444444
+"587",10,"York South-Weston",2.44444444444444
+"588",11,"York South-Weston",2.5
+"589",12,"York South-Weston",2.5
+"590",13,"York South-Weston",2.2
+"591",14,"York South-Weston",2.31111111111111
+"592",15,"York South-Weston",2.02222222222222
+"593",16,"York South-Weston",2.41111111111111
+"594",17,"York South-Weston",2.33333333333333
+"595",18,"York South-Weston",2.23333333333333
+"596",19,"York South-Weston",2.18888888888889
+"597",20,"York South-Weston",2.25555555555556
+"598",21,"York South-Weston",13.3555555555556
+"599",22,"York South-Weston",13.2888888888889
+"600",23,"York South-Weston",13.1444444444444
