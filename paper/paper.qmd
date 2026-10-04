@@ -29,7 +29,7 @@ The raccoon (*Procyon lotor*) is a mammal native to North America. While predomi
 
 In Toronto, the raccoon is a divisive figure. The "raccoon problem" is one that has plagued Toronto City Council, with a number of mayors investing in methods of population control, "raccoon-proof" garbage bins, and even floating the possibility of extermination programs. Conversely, Conrad - a dead raccoon left on a sidewalk for fourteen hours that became a national media sensation - was memorialised with a heritage plaque on the corner of Yonge and Church on the eve of his tenth anniversary in 2025. The raccoon is seen as a symbol of adaptability, resilience, and part of life in the Greater Toronto Area (GTA) - so much so that City of Toronto's Open Data team released a Toronto Raccoon Activity Index (TRAI) dataset on April 1, 2026, describing the raccoon as a "prominent feature of Toronto's urban environment" that necessitated detailed, hourly observations across the 25 wards of the city. While the TRAI is ostensibly a joke and likely randomly generated, its mere existence symbolises the complex relationship between the raccoons and the citizens of Toronto.
 
-This paper seeks to analyse the TRAI through two lenses - as a legitimate dataset of raccoon behaviour across the city, and as a deliberately created product that may reveal underlying assumptions and understandings of Toronto's neighborhoods culturally and/or socioeconomically.
+This paper seeks to analyse the TRAI through two lenses - as a legitimate dataset of raccoon behaviour across the city, and as a deliberately created product that may reveal underlying assumptions and biased understandings of Toronto's neighborhoods.
 
 # Data
 
@@ -47,7 +47,7 @@ The TRAI details hourly raccoon appearances across the 25 wards of the GTA from 
 #| message: false
 #| tbl-cap: Sample Raccoon Activity Across 5 Wards of Toronto January 1, 2024 00:00
 
-raccoon <- read_csv("~/yyz-raccoon-activity/data/raw_raccoon.csv")
+raccoon <- read_csv("~/yyz-raccoon-activity/data/01-raw_data/raw_raccoon.csv")
 
 activity_summary <- raccoon[c(6,7,8,9,10)]
 
@@ -64,7 +64,7 @@ Alongside raccoon behaviour, the TRAI records human-raccoon interactions (@tbl-6
 #| message: false
 #| tbl-cap: Raccoon-Human Interactions in Toronto-Danforth January 1, 2024 from 00:00 to 06:00
 
-raccoon <- read_csv("~/yyz-raccoon-activity/data/raw_raccoon.csv", col_types = cols(proximity_to_a_patio = col_logical()))
+raccoon <- read_csv("~/yyz-raccoon-activity/data/01-raw_data/raw_raccoon.csv", col_types = cols(proximity_to_a_patio = col_logical()))
 
 human_summary <- raccoon[c(4,11,12,13,14)]
 
@@ -73,7 +73,7 @@ human_summary_sample <- human_summary[c(14,39,64,89,114,139),]
 kable(head(human_summary_sample, n=6), format = "pipe", col.names = c("Hour", "Human Raccoon Confrontations", "Average Standoff Duration (s)", "Patio Proximity", "Complaints Logged"))
 ```
 
-### Data Cleaning and Aggregation
+### Cleaning and Aggregation
 
 This data can be analysed across a number of categories, such as creating an average of raccoon observations per hour, or the daily average raccoon appearances in the quarter. The `aggregate` function of the `stats` package is used to create these averaged datasets (@tbl-aggregate).
 
@@ -87,8 +87,8 @@ This data can be analysed across a number of categories, such as creating an ave
 #| - "Hourly Average"
 #| layout-ncol: 2
 
-daily <- read.csv("~/yyz-raccoon-activity/data/yyz_daily_avg.csv")
-hourly <- read.csv("~/yyz-raccoon-activity/data/yyz_hourly_avg.csv")
+daily <- read.csv("~/yyz-raccoon-activity/data/02-cleaned_data/yyz_daily_avg.csv")
+hourly <- read.csv("~/yyz-raccoon-activity/data/02-cleaned_data/yyz_hourly_avg.csv")
 
 kable(head(daily[, 2:3], n=6), format = "pipe", col.names = c("Date", "Raccoons Observed"), digits = 2)
 kable(head(hourly[,2:3], n=6), format = "pipe", col.names = c("Hour", "Raccoons Observed"), digits = 2)
@@ -99,7 +99,7 @@ kable(head(hourly[,2:3], n=6), format = "pipe", col.names = c("Hour", "Raccoons 
 
 ### Description
 
-The Ward Profiles dataset is based on the 2021 Census of Population conducted by the Government of Canada. The dataset records the demographics for the population and households of each ward, including ethnocultural origins, language, education status, and employment.
+The Ward Profiles dataset is based on the 2021 Census of Population conducted by the Government of Canada. The dataset records the demographics for the population and households of each ward, including ethnocultural origins, language, education status, and employment. See @tbl-demo-age for a sample of how the data is structured.
 
 ```{r}
 #| label: tbl-demo-age
@@ -107,12 +107,15 @@ The Ward Profiles dataset is based on the 2021 Census of Population conducted by
 #| echo: false
 #| message: false
 
-raw_ward_demo <- read_csv("~/yyz-raccoon-activity/data/raw_ward_demo.csv")
+raw_ward_demo <- read_csv("~/yyz-raccoon-activity/data/01-raw_data/raw_ward_demo.csv")
 age <- raw_ward_demo[17:39,]
 colnames(age) = age[1,]
 age = age[-1,]
 age <- tibble(age, .name_repair = "unique") |> rename("Age Range" = ...2)
 
 kable(age[2:20, 2:5], format = 'pipe')
-
 ```
+
+## Cleaning and Merging
+
+As the TRAI and the Ward Profiles share the same ID, each ward's demographics can be compared with corresponding raccoon behaviour by merging these datasets.

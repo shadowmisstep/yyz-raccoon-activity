@@ -46,5 +46,5 @@ view(raccoon_sim)
 
 #export the simulated data as a csv
 
-write.csv(raccoon_sim, file = "~/yyz-raccoon-activity/data/raccoon_sim.csv")
+write.csv(raccoon_sim, file = "~/yyz-raccoon-activity/data/00-simulated_data/raccoon_sim.csv")
 

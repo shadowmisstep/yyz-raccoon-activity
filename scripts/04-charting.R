@@ -11,10 +11,10 @@ library(ggplot2)
 
 #import datasets
 library(readr)
-raw_raccoon <- read_csv("data/raw_raccoon.csv")
-yyzhourly <- read_csv("data/yyz_hourly_avg.csv")
-yyzwardlyhourly <- read_csv("data/yyz_hourly_avg_by_ward.csv")
-yyzdaily <- read_csv("data/yyz_daily_avg.csv")
+raw_raccoon <- read_csv("~/yyz-raccoon-activity/data/01-raw_data/raw_raccoon.csv")
+yyzhourly <- read_csv("~/yyz-raccoon-activity/data/02-cleaned_data/yyz_hourly_avg.csv")
+yyzwardlyhourly <- read_csv("~/yyz-raccoon-activity/data/02-cleaned_data/yyz_hourly_avg_by_ward.csv")
+yyzdaily <- read_csv("~/yyz-raccoon-activity/data/02-cleaned_data/yyz_daily_avg.csv")
 
 # scatterplot of number of raccoons vs bins compromised
 ggplot(raw_raccoon, aes(x=units_observed, y=bins_compromised)) + geom_point()

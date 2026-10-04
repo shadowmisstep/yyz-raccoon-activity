@@ -22,7 +22,7 @@ raccoon <- list_package_resources("932c7dc1-d5c3-4740-995b-b5565d482584") %>% ge
 
 #save raw data
 
-write.csv(raccoon, file = "~/yyz-raccoon-activity/data/raw_raccoon.csv")
+write.csv(raccoon, file = "~/yyz-raccoon-activity/data/01-raw_data/raw_raccoon.csv")
 
 #download ward profile data
 package <- show_package("6678e1a6-d25f-4dff-b2b7-aa8f042bc2eb")
@@ -35,6 +35,6 @@ ward_profiles <- list_package_resources("6678e1a6-d25f-4dff-b2b7-aa8f042bc2eb") 
 ward_demo <- ward_profiles["2021 One Variable"]
 
 #save raw data
-write.csv(ward_demo, file = "~/yyz-raccoon-activity/data/raw_ward_demo.csv")
+write.csv(ward_demo, file = "~/yyz-raccoon-activity/data/01-raw_data/raw_ward_demo.csv")
 
 
