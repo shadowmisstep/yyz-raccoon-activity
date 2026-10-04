@@ -8,6 +8,9 @@ date-format: long
 abstract: "I'll write it"
 format: pdf
 number-sections: true
+header-includes:       
+      - \usepackage{float}
+      - \floatplacement{table}{H}
 ---
 
 ```{r}
@@ -17,48 +20,99 @@ number-sections: true
 library(tidyverse)
 library(paletteer)
 library(tinytex)
+library(knitr)
 ```
 
 # Introduction
 
 The raccoon (*Procyon lotor*) is a mammal native to North America. While predominately located on the East coast and the Great Lakes regions, raccoon populations have spread rapidly across the continent since the introduction of European colonists and the fur trade. Notably, they have found considerable success in metropolitan areas, due to factors such as readily available food sources like waste bins and gardens, accessible habitats in housing and buildings, and a lack of natural predators. However, raccoons also pose risks to their neighbours, as they commonly carry diseases such as rabies and *Baylisascaris procyonis*, both of which cause severe neurological harm in humans. Moreover, raccoons nesting often cause dangerous and costly property damage.
 
-In Toronto, the raccoon is a divisive figure. The "raccoon problem" is one that has plagued Toronto City Council, with a number of mayors investing in methods of population control, "raccoon-proof" garbage bins, and even floating the possibility of extermination programs. Conversely, Conrad - a dead raccoon left on a sidewalk for fourteen hours that became a national media sensation - was memorialised with a heritage plaque on the corner of Yonge and Church on the eve of his tenth anniversary in 2025. The raccoon is seen as a symbol of adaptability, resilience, and part of life in the Greater Toronto Area (GTA) - so much so that City of Toronto's Open Data team released a Toronto Raccoon Activity Index (TRAI) dataset on April 1, 2026, describing the raccoon as a "prominent feature of Toronto's urban environment" that necessitated detailed, hourly observations across the 25 wards of the city. While the TRAI is ostensibly a joke and likely randomly generated, its mere existence symbolises the complex relationship between the raccoons and the citizens of Toronto. As a deliberately generated dataset, the TRAI also reflects
+In Toronto, the raccoon is a divisive figure. The "raccoon problem" is one that has plagued Toronto City Council, with a number of mayors investing in methods of population control, "raccoon-proof" garbage bins, and even floating the possibility of extermination programs. Conversely, Conrad - a dead raccoon left on a sidewalk for fourteen hours that became a national media sensation - was memorialised with a heritage plaque on the corner of Yonge and Church on the eve of his tenth anniversary in 2025. The raccoon is seen as a symbol of adaptability, resilience, and part of life in the Greater Toronto Area (GTA) - so much so that City of Toronto's Open Data team released a Toronto Raccoon Activity Index (TRAI) dataset on April 1, 2026, describing the raccoon as a "prominent feature of Toronto's urban environment" that necessitated detailed, hourly observations across the 25 wards of the city. While the TRAI is ostensibly a joke and likely randomly generated, its mere existence symbolises the complex relationship between the raccoons and the citizens of Toronto.
 
-This project
+This paper seeks to analyse the TRAI through two lenses - as a legitimate dataset of raccoon behaviour across the city, and as a deliberately created product that may reveal underlying assumptions and understandings of Toronto's neighborhoods culturally and/or socioeconomically.
 
 # Data
 
-This paper utilises two datasets obtained through the OpenDataToronto Library - the Toronto Raccoon Activity Index, and the 2021 One Variable sheet from the Ward Profiles (25-Ward Model) dataset. Data was extracted using `R` and the `opendatatoronto` library, and cleaned using the `tidyverse` package.
+The two datasets utilised in this paper were obtained through the OpenDataToronto Library - the Toronto Raccoon Activity Index, and the 2021 One Variable sheet from the Ward Profiles (25-Ward Model) dataset. Data was extracted using `R` and the `opendatatoronto` library, and cleaned using the `tidyverse` package.
 
 ## The Toronto Raccoon Activity Index
 
-### Raccoon Activity
+### Description
 
-The TRAI details hourly raccoon appearances across the 25 wards of the GTA from January 1 to March 30 of 2024 (@tbl-1hr-25wrd). Additionally, the TRAI records the number of compromised green compost bins, average raccoon weight in kilograms, and the raccoon's "confidence."
+The TRAI details hourly raccoon appearances across the 25 wards of the GTA from January 1 to March 30 of 2024 (@tbl-1hr-5wrd). Additionally, the TRAI records the number of compromised green compost bins, average raccoon weight in kilograms, and the raccoon's "confidence." Given that there is no given methodology or definition for characterising raccoon behaviour, this metric was not used in analysis.
 
 ```{r}
-#| label: tbl-1hr-25wrd
+#| label: tbl-1hr-5wrd
 #| echo: false
 #| message: false
-#| tbl-cap: Raccoon Activity at January 1, 2024 00:00
-
-library(knitr)
+#| tbl-cap: Sample Raccoon Activity Across 5 Wards of Toronto January 1, 2024 00:00
 
 raccoon <- read_csv("~/yyz-raccoon-activity/data/raw_raccoon.csv")
 
 activity_summary <- raccoon[c(6,7,8,9,10)]
 
-activity_summary_hr <- activity_summary[1:25,]
+activity_summary_hr <- activity_summary[9:14,]
 
-kable(head(activity_summary, n=25), format = "pipe", col.names = c("Ward", "Units Observed", "Bins Compromised", "Raccoon Confidence", "Average Weight (kg)"))
+kable(head(activity_summary_hr), format = "pipe", col.names = c("Ward", "Units Observed", "Bins Compromised", "Raccoon Confidence", "Average Weight (kg)"))
+```
+
+Alongside raccoon behaviour, the TRAI records human-raccoon interactions (@tbl-6hr-1wrd-human). These interactions are defined as confrontations (described as "standoffs") with the number of incidents, average duration of the interaction in seconds, proximity to a patio, and complaints filed are recorded.
+
+```{r}
+#| label: tbl-6hr-1wrd-human
+#| echo: false
+#| message: false
+#| tbl-cap: Raccoon-Human Interactions in Toronto-Danforth January 1, 2024 from 00:00 to 06:00
+
+raccoon <- read_csv("~/yyz-raccoon-activity/data/raw_raccoon.csv", col_types = cols(proximity_to_a_patio = col_logical()))
+
+human_summary <- raccoon[c(4,11,12,13,14)]
+
+human_summary_sample <- human_summary[c(14,39,64,89,114,139),]
+
+kable(head(human_summary_sample, n=6), format = "pipe", col.names = c("Hour", "Human Raccoon Confrontations", "Average Standoff Duration (s)", "Patio Proximity", "Complaints Logged"))
+```
+
+### Data Cleaning and Aggregation
+
+This data can be analysed across a number of categories, such as creating an average of raccoon observations per hour, or the daily average raccoon appearances in the quarter. The `aggregate` function of the `stats` package is used to create these averaged datasets (@tbl-aggregate).
+
+```{r}
+#| label: tbl-aggregate
+#| tbl-cap: "Daily and Hourly Averages of Observed Raccoons Across Toronto from January to March 2024"
+#| echo: false
+#| message: false
+#| tbl-subcap:
+#| - "Daily Average"
+#| - "Hourly Average"
+#| layout-ncol: 2
+
+daily <- read.csv("~/yyz-raccoon-activity/data/yyz_daily_avg.csv")
+hourly <- read.csv("~/yyz-raccoon-activity/data/yyz_hourly_avg.csv")
+
+kable(head(daily[, 2:3], n=6), format = "pipe", col.names = c("Date", "Raccoons Observed"), digits = 2)
+kable(head(hourly[,2:3], n=6), format = "pipe", col.names = c("Hour", "Raccoons Observed"), digits = 2)
 
 ```
 
-This data can be aggregated across a number of categories, such as creating an average of raccoon observations per hour, or the daily average raccoon appearances in the quarter.
-
-### Raccoon-Human Interactions
-
 ## Ward Profiles
 
-The Ward Profiles dataset is based on the 2021 Census of Population conducted by the Government of Canada.
+### Description
+
+The Ward Profiles dataset is based on the 2021 Census of Population conducted by the Government of Canada. The dataset records the demographics for the population and households of each ward, including ethnocultural origins, language, education status, and employment.
+
+```{r}
+#| label: tbl-demo-age
+#| tbl-cap: "Age Demographics of Toronto and Sample Wards Based on 2021 Census Data"
+#| echo: false
+#| message: false
+
+raw_ward_demo <- read_csv("~/yyz-raccoon-activity/data/raw_ward_demo.csv")
+age <- raw_ward_demo[17:39,]
+colnames(age) = age[1,]
+age = age[-1,]
+age <- tibble(age, .name_repair = "unique") |> rename("Age Range" = ...2)
+
+kable(age[2:20, 2:5], format = 'pipe')
+
+```
