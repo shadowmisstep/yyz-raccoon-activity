@@ -33,10 +33,38 @@ yyzdaily <- rename(yyzdaily, date = Group.1, avg_units_observed = x)
 #export dataset
 write.csv(yyzdaily, file = "~/yyz-raccoon-activity/data/02-cleaned_data/yyz_daily_avg.csv")
 
-#create average raccoon weight by ward and merge with ward demos (income, housing type, household size)
+#create average raccoon weight by ward 
+yyzwardlyweight <- aggregate(raccoon$average_unit_weight_kg, by = list(raccoon$ward_id), FUN = mean)
+yyzwardlyweight <- rename(yyzwardlyweight, ward = Group.1, avg_raccoon_weight = x)
+
 #create average daily raccoon observances by ward and merge with ward demos
 
-########## Failed Project Under Here ##########
+#import dataset for demographics per ward
+warddemo <- read_csv("~/yyz-raccoon-activity/data/01-raw_data/raw_ward_demo.csv")
+
+#average household size
+houseavg <- warddemo[133,]
+wardnames <- warddemo[125,]
+houseavg <- rbind(wardnames,houseavg)
+colnames(houseavg) = houseavg[1,]
+houseavg = houseavg[-1,-2]
+houseavg = houseavg[,-1]
+houseavg = houseavg[,-1]
+houseavg <- as.numeric(houseavg)
+
+#median income 
+incomem <- warddemo[1384,]
+incomem <- rbind(wardnames,incomem)
+colnames(incomem) = incomem[1,]
+incomem = incomem[-1,-2]
+incomem = incomem[,-1]
+incomem = incomem[,-1]
+incomem <- as.numeric(incomem)
+
+#attach demo info to the data sources that categorise by ward_id
+
+
+########## Failed Projects Under Here ##########
 
 #creating ward-specific datasets
 #etonorth <- raccoon |> dplyr::filter(ward_id==1)
@@ -75,4 +103,20 @@ write.csv(yyzdaily, file = "~/yyz-raccoon-activity/data/02-cleaned_data/yyz_dail
   #write.csv(ward, file = filename)
 #}
 
+#income
+income <- warddemo[1358:1379,]
+colnames(income) = income[1,]
+income = income[-1,-1]
+income <- tibble(income, .name_repair = "unique") |> rename("Income Bracket" = ...2)
 
+#dwelling type
+dwelling <- warddemo[42:51,]
+colnames(dwelling) = dwelling[1,]
+dwelling = dwelling[-1,-1]
+dwelling <- tibble(dwelling, .name_repair = "unique") |> rename("Dwelling Structure" = ...2)
+
+#household type
+family <- warddemo[125:131,]
+colnames(family) = family[1,]
+family = family[-1,-1]
+family <- tibble(family, .name_repair = "unique") |> rename("Number of Residents in Household" = ...2)
