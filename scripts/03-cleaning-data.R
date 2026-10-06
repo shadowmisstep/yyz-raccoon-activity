@@ -38,6 +38,9 @@ yyzwardlyweight <- aggregate(raccoon$average_unit_weight_kg, by = list(raccoon$w
 yyzwardlyweight <- rename(yyzwardlyweight, ward = Group.1, avg_raccoon_weight = x)
 
 #create average daily raccoon observances by ward and merge with ward demos
+yyzwardlyavg <- aggregate(raccoon$units_observed, by = list(raccoon$ward_name), FUN = mean)
+yyzwardlyavg <- rename(yyzwardlyavg, ward = Group.1, units_observed = x)
+write.csv(yyzwardlyavg, file = "~/yyz-raccoon-activity/data/02-cleaned_data/yyz_avg_by_ward.csv")
 
 #import dataset for demographics per ward
 warddemo <- read_csv("~/yyz-raccoon-activity/data/01-raw_data/raw_ward_demo.csv")
