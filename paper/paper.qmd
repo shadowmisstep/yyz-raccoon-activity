@@ -99,23 +99,57 @@ kable(head(hourly[,2:3], n=6), format = "pipe", col.names = c("Hour", "Raccoons 
 
 ### Description
 
-The Ward Profiles dataset is based on the 2021 Census of Population conducted by the Government of Canada. The dataset records the demographics for the population and households of each ward, including ethnocultural origins, language, education status, and employment. See @tbl-demo-age for a sample of how the data is structured.
+The Ward Profiles dataset is based on the 2021 Census of Population conducted by the Government of Canada. The dataset records the demographics for the population and households of each ward, including ethnocultural origins, language, education status, and employment. See @tbl-demo-dwelling for a sample of how the data is structured.
 
 ```{r}
-#| label: tbl-demo-age
-#| tbl-cap: "Age Demographics of Toronto and Sample Wards Based on 2021 Census Data"
+#| label: tbl-demo-dwelling
+#| tbl-cap: "Types of Household Dwellings of Toronto and Sample Wards"
 #| echo: false
 #| message: false
 
 raw_ward_demo <- read_csv("~/yyz-raccoon-activity/data/01-raw_data/raw_ward_demo.csv")
-age <- raw_ward_demo[17:39,]
-colnames(age) = age[1,]
-age = age[-1,]
-age <- tibble(age, .name_repair = "unique") |> rename("Age Range" = ...2)
+dwelling <- raw_ward_demo[42:51,]
+colnames(dwelling) = dwelling[1,]
+dwelling = dwelling[-1,]
+dwelling <- tibble(dwelling, .name_repair = "unique") |> rename("Dwelling Structure" = ...2)
 
-kable(age[2:20, 2:5], format = 'pipe')
+kable(dwelling[2:9, 2:8], format = 'pipe')
 ```
 
 ## Cleaning and Merging
 
-As the TRAI and the Ward Profiles share the same ID, each ward's demographics can be compared with corresponding raccoon behaviour by merging these datasets.
+As the TRAI and the Ward Profiles share the same ID, each ward's demographics can be compared with corresponding raccoon behaviour. The Ward Profiles dataset includes average and median values for income and average household size, which are then isolated and merged with existing raccoon behaviour datasets.
+
+```{r}
+#| label: tbl-income-raccoon
+#| tbl-cap: "Merged Dataset of Demographics and Raccoon Behaviour per Ward"
+#| echo: false
+#| message: false
+
+
+
+
+
+```
+
+
+# Results
+
+## City-Wide Behaviour
+
+
+
+```{r}
+#| label: fig-hr-avg
+#| tbl-cap: "Average Raccoon Observations per Hour"
+#| echo: false
+#| message: false
+
+library(ggplot2)
+
+hourly <- read.csv("~/yyz-raccoon-activity/data/02-cleaned_data/yyz_hourly_avg.csv")
+ggplot(hourly, aes(x=hour, y=avg_units_observed)) + geom_line()
+
+```
+
+
