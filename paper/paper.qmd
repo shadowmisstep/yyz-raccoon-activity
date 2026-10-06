@@ -120,36 +120,73 @@ kable(dwelling[2:9, 2:8], format = 'pipe')
 
 As the TRAI and the Ward Profiles share the same ID, each ward's demographics can be compared with corresponding raccoon behaviour. The Ward Profiles dataset includes average and median values for income and average household size, which are then isolated and merged with existing raccoon behaviour datasets.
 
-```{r}
-#| label: tbl-income-raccoon
-#| tbl-cap: "Merged Dataset of Demographics and Raccoon Behaviour per Ward"
-#| echo: false
-#| message: false
-
-
-
-
-
-```
-
-
 # Results
 
 ## City-Wide Behaviour
 
-
-
 ```{r}
-#| label: fig-hr-avg
-#| tbl-cap: "Average Raccoon Observations per Hour"
+#| label: fig-avg
+#| fig-cap: "Average Raccoon Appearances Across Toronto"
 #| echo: false
 #| message: false
+#| fig-subcap:
+#| - "Hourly Average"
+#| - "Daily Average"
+#| layout-ncol: 2
 
 library(ggplot2)
 
-hourly <- read.csv("~/yyz-raccoon-activity/data/02-cleaned_data/yyz_hourly_avg.csv")
-ggplot(hourly, aes(x=hour, y=avg_units_observed)) + geom_line()
+hourly <- read_csv("~/yyz-raccoon-activity/data/02-cleaned_data/yyz_hourly_avg.csv")
+ggplot(hourly, aes(x=hour, y=avg_units_observed)) + geom_line() + xlab("Hour") + ylab ("Average Raccoons Observed") + xlim(0,23) + theme_classic()
+
+daily <- read_csv("~/yyz-raccoon-activity/data/02-cleaned_data/yyz_daily_avg.csv")
+ggplot(daily, aes(x=date, y=avg_units_observed)) + geom_line() + lims(y=c(0,8)) + xlab("Date") + ylab ("Average Raccoons Observed") + theme_classic()
 
 ```
+
+The TRAI featured a total of 54 000 observations over the timespan of the dataset. Overall, a total of 335 957 observations of raccoons were recorded. Raccoons observances peaked from the hours of 20:00 to 4:00, corresponding with their nocturnal nature, and around three to four times a month, likely corresponding to the waste management schedule for green bins, which are collected once a week (@fig-avg).
+
+Moreover, a higher presence of raccoons and number of observations directly correlates with higher raccoon activity, including compromised bins (@fig-bin) and interactions with humans. These interactions also directly correlate to logged complaints, which reflects the combative nature of the relationship between residents and raccoons. These relationships are detailed in @fig-human.
+
+``` {r}
+#| label: fig-bin
+#| fig-cap: "Raccoons Observed Compared to Number of Green Bins Compromised"
+#| echo: false
+#| message: false
+
+ggplot(raccoon, aes(x=units_observed, y=bins_compromised)) + geom_point() + geom_jitter() + geom_smooth(method="lm", se=FALSE, colour="red") + xlab("Raccoons") + ylab("Compromised Bins") + theme_classic()
+
+```
+
+``` {r}
+#| label: fig-human
+#| fig-cap: Human Responses to Raccoon Activity (with Jitter)
+#| echo: false
+#| message: false
+#| fig-subcap: 
+#| - "Number of Compromised Green Bins to Human-Raccoon Incidents"
+#| - "Number of Compromised Green Bins to Submitted Complaints" 
+#| - "Human-Raccoon Incidents to Submitted Complaints"
+#| layout-ncol: 3
+
+ggplot(raccoon, aes(x=bins_compromised, y=incidents_of_raccoon_human_standoff)) + geom_point() + geom_jitter() + geom_smooth(method="lm", se=FALSE, colour="red") +  theme_classic() + xlab("Bins Compromised") + ylab("Human-Raccoon Confrontations")
+
+ggplot(raccoon, aes(x=bins_compromised, y=complaints_logged)) + geom_point() + geom_jitter() + geom_smooth(method="lm", se=FALSE, colour="red") + theme_classic() + xlab("Bins Compromised") + ylab("Complaints")
+
+ggplot(raccoon, aes(x=incidents_of_raccoon_human_standoff, y=complaints_logged)) + geom_point() + geom_jitter() + geom_smooth(method="lm", se=FALSE, colour="red") + theme_classic() + xlab("Human-Raccoon Confrontations") + ylab("Complaints")
+
+```
+
+## By Ward
+- Weight boxplot (who are outliers?)
+- Wardly average raccoon observations bar graph (who are outliers?)
+- Are the outliers between weight and observations the same?
+- Total complaints per ward (outliers?)
+- Total confrontations per ward (outliers?)
+- plot demos (group bar?)
+- Are there correlations?
+
+
+
 
 
