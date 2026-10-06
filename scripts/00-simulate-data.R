@@ -12,6 +12,7 @@
 ## - stats are presumably dependent on one another in ways that are difficult to simulate using random number generation only (are compromised bins wholly dependent on raccoon sightings, and if so, how?)
 ## - weights and probabilities for bins, confrontations, and complaints are currently skewed/adjusted based on "vibes" and general histograms, rather than proper probability or statistics
 ## - raccoon confidence is not simulated for pragmatic reasons (ie not used in analysis)
+## - not sure how to test if this is a good simulation
 
 #calling libraries
 library(tidyverse)
