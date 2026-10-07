@@ -2,10 +2,12 @@
 title: "The Toronto Raccoon Activity Index"
 subtitle: "A Serious Exploration of a Joke Dataset"
 author: Lewis Sang
-thanks: "View the code and datasets at https://github.com/shadowmisstep/yyz-raccoon-activity"
+thanks: "The code and datasets used in this paper are available at https://github.com/shadowmisstep/yyz-raccoon-activity"
 date: 2026-10-01
 date-format: long
-abstract: "I'll write it"
+abstract: "The raccoon (*Procyon lotor*) in Toronto is a well-liked, if controversial, animal population that presents risks for both human health and property. This project examines the Toronto Raccoon Activity Index, a false dataset generated for April Fool's Day 2026, as a model for actual raccoon behaviour and reflects on how its design mirrors common understandings of raccoons. This paper argues that the design and results of the false dataset reveals tensions in how these 'pests' are viewed and sought to be managed within human-centric urban environments."
+toc: true
+bibliography: references.bib
 format: pdf
 number-sections: true
 header-includes:       
@@ -18,22 +20,21 @@ header-includes:
 #| include: false
 
 library(tidyverse)
-library(paletteer)
 library(tinytex)
 library(knitr)
 ```
 
 # Introduction
 
-The raccoon (*Procyon lotor*) is a mammal native to North America. While predominately located on the East coast and the Great Lakes regions, raccoon populations have spread rapidly across the continent since the introduction of European colonists and the fur trade. Notably, they have found considerable success in metropolitan areas, due to factors such as readily available food sources like waste bins and gardens, accessible habitats in housing and buildings, and a lack of natural predators. However, raccoons also pose risks to their neighbours, as they commonly carry diseases such as rabies and *Baylisascaris procyonis*, both of which cause severe neurological harm in humans. Moreover, raccoons nesting often cause dangerous and costly property damage.
+The raccoon (*Procyon lotor*) is a mammal omnivore native to North America. While predominately located on the East coast and the Great Lakes regions, raccoon populations have spread rapidly across the continent since the introduction of European colonists and the fur trade (@rosatte2000). Notably, they have found considerable success in metropolitan areas, due to factors such as readily available food sources like waste bins and gardens, accessible habitats in housing and buildings, and a lack of natural predators (@werb2026). However, raccoons also pose risks to their neighbours, as they commonly carry diseases such as rabies and *Baylisascaris procyonis*, both of which cause severe neurological harm in humans (@french2022). Moreover, raccoons nesting often cause dangerous and costly property damage.
 
-In Toronto, the raccoon is a divisive figure. The "raccoon problem" is one that has plagued Toronto City Council, with a number of mayors investing in methods of population control, "raccoon-proof" garbage bins, and even floating the possibility of extermination programs. Conversely, Conrad - a dead raccoon left on a sidewalk for fourteen hours that became a national media sensation - was memorialised with a heritage plaque on the corner of Yonge and Church on the eve of his tenth anniversary in 2025. The raccoon is seen as a symbol of adaptability, resilience, and part of life in the Greater Toronto Area (GTA) - so much so that City of Toronto's Open Data team released a Toronto Raccoon Activity Index (TRAI) dataset on April 1, 2026, describing the raccoon as a "prominent feature of Toronto's urban environment" that necessitated detailed, hourly observations across the 25 wards of the city. While the TRAI is ostensibly a joke and likely randomly generated, its mere existence symbolises the complex relationship between the raccoons and the citizens of Toronto.
+In Toronto, the raccoon is a divisive figure. The "raccoon problem" is one that has plagued Toronto City Council, with a number of mayors investing in methods of population control, "raccoon-proof" garbage bins, and even floating the possibility of extermination programs (@cbcnews2014). Conversely, Conrad - a dead raccoon left on a sidewalk for fourteen hours that became a national media sensation - was memorialised with a heritage plaque on the corner of Yonge and Church on the eve of his tenth anniversary (@baldin2025). The raccoon is seen as a symbol of adaptability, resilience, and part of life in the Greater Toronto Area (@renzetti2015) - so much so that City of Toronto's Open Data team released a Toronto Raccoon Activity Index (TRAI) dataset on April 1, 2026, describing the raccoon as a "prominent feature of Toronto's urban environment" that necessitated detailed, hourly observations across the 25 wards of the city (@cityoftoronto). While the TRAI is ostensibly a joke and likely randomly generated, its mere existence symbolises the complex relationship between the raccoons and the citizens of Toronto.
 
-This paper seeks to analyse the TRAI through two lenses - as a legitimate dataset of raccoon behaviour across the city, and as a deliberately created product that may reveal underlying assumptions and biased understandings of Toronto's neighborhoods.
+This paper seeks to analyse the TRAI through two lenses - as a legitimate dataset of raccoon behaviour across the city, and as a deliberately created product that may reveal underlying assumptions and biased understandings of the city's residents and their relationship to the environments in which they live.
 
 # Data
 
-The two datasets utilised in this paper were obtained through the OpenDataToronto Library - the Toronto Raccoon Activity Index, and the 2021 One Variable sheet from the Ward Profiles (25-Ward Model) dataset. Data was extracted using `R` and the `opendatatoronto` library, and cleaned using the `tidyverse` package.
+The two datasets utilised in this paper were obtained through the OpenDataToronto Library - the Toronto Raccoon Activity Index (@cityoftoronto), and the 2021 One Variable sheet from the Ward Profiles (25-Ward Model) dataset (@wardpro). Data was extracted using `R` (@Rsoftware) and the `opendatatoronto` library (@opento), and cleaned using the `tidyverse` package (@tidyverse).
 
 ## The Toronto Raccoon Activity Index
 
@@ -75,7 +76,7 @@ kable(head(human_summary_sample, n=6), format = "pipe", col.names = c("Hour", "H
 
 ### Cleaning and Aggregation
 
-This data can be analysed across a number of categories, such as creating an average of raccoon observations per hour, or the daily average raccoon appearances in the quarter. The `aggregate` function of the `stats` package is used to create these averaged datasets (@tbl-aggregate).
+This data can be analysed across a number of categories, such as creating an average of raccoon observations per hour, or the daily average raccoon appearances in the quarter. The `aggregate` function of the base R `stats` package is used to create these averaged datasets (@tbl-aggregate).
 
 ```{r}
 #| label: tbl-aggregate
@@ -116,7 +117,7 @@ dwelling <- tibble(dwelling, .name_repair = "unique") |> rename("Dwelling Struct
 kable(dwelling[2:9, 2:8], format = 'pipe')
 ```
 
-## Cleaning and Merging
+## Cleaning
 
 As the TRAI and the Ward Profiles share the same ID, each ward's demographics can be compared with corresponding raccoon behaviour. The Ward Profiles dataset includes average and median values for income and average household size, which are then isolated and merged with existing raccoon behaviour datasets.
 
@@ -144,30 +145,21 @@ ggplot(daily, aes(x=date, y=avg_units_observed)) + geom_line() + lims(y=c(0,8)) 
 
 ```
 
-The TRAI featured a total of 54 000 observations over the timespan of the dataset. Overall, a total of 335 957 observations of raccoons were recorded. Raccoons observances peaked from the hours of 20:00 to 4:00, corresponding with their nocturnal nature, and around three to four times a month, likely corresponding to the waste management schedule for green bins, which are collected once a week (@fig-avg).
+The TRAI featured a total of 54 000 observations over the timespan of the dataset. Overall, a total of 335 957 observations of raccoons were recorded. Raccoons observances peaked from the hours of 20:00 to 4:00 around three to four times a month (@fig-avg). Moreover, a higher presence of raccoons and number of observations directly correlates with higher raccoon activity, including compromised bins (@fig-incidents) and interactions with humans. These interactions also directly correlate to logged complaints.
 
-Moreover, a higher presence of raccoons and number of observations directly correlates with higher raccoon activity, including compromised bins (@fig-bin) and interactions with humans. These interactions also directly correlate to logged complaints, which reflects the combative nature of the relationship between residents and raccoons. These relationships are detailed in @fig-human.
-
-``` {r}
-#| label: fig-bin
-#| fig-cap: "Raccoons Observed Compared to Number of Green Bins Compromised"
-#| echo: false
-#| message: false
-
-ggplot(raccoon, aes(x=units_observed, y=bins_compromised)) + geom_point() + geom_jitter() + geom_smooth(method="lm", se=FALSE, colour="red") + xlab("Raccoons") + ylab("Compromised Bins") + theme_classic()
-
-```
-
-``` {r}
-#| label: fig-human
-#| fig-cap: Human Responses to Raccoon Activity (with Jitter)
+```{r}
+#| label: fig-incidents
+#| fig-cap: Correlations of Raccoon Impact (with Jitter)
 #| echo: false
 #| message: false
 #| fig-subcap: 
+#| - "Raccoons Observed Compared to Number of Green Bins Compromised"
 #| - "Number of Compromised Green Bins to Human-Raccoon Incidents"
 #| - "Number of Compromised Green Bins to Submitted Complaints" 
 #| - "Human-Raccoon Incidents to Submitted Complaints"
-#| layout-ncol: 3
+#| layout-ncol: 2
+
+ggplot(raccoon, aes(x=units_observed, y=bins_compromised)) + geom_point() + geom_jitter() + geom_smooth(method="lm", se=FALSE, colour="red") + xlab("Raccoons") + ylab("Compromised Bins") + theme_classic()
 
 ggplot(raccoon, aes(x=bins_compromised, y=incidents_of_raccoon_human_standoff)) + geom_point() + geom_jitter() + geom_smooth(method="lm", se=FALSE, colour="red") +  theme_classic() + xlab("Bins Compromised") + ylab("Human-Raccoon Confrontations")
 
@@ -178,15 +170,65 @@ ggplot(raccoon, aes(x=incidents_of_raccoon_human_standoff, y=complaints_logged))
 ```
 
 ## By Ward
-- Weight boxplot (who are outliers?)
-- Wardly average raccoon observations bar graph (who are outliers?)
-- Are the outliers between weight and observations the same?
-- Total complaints per ward (outliers?)
-- Total confrontations per ward (outliers?)
-- plot demos (group bar?)
-- Are there correlations?
 
+Given the direct correlations between raccoon observations, raccoon activity, and human-raccoon interactions, graphing these occurrences across the 25 wards reveals similar patterns and outliers (@fig-ward-raccoon). There are eight wards that are consistent outliers - Beaches-East York, Davenport, Etobicoke-Lakeshore, Parkside-High Park, Spadina Forth York, Toronto-Danforth, Toronto Centre, and University-Rosedale. However, examining the neighbourhood demographics do not reflect similarly notable outliers in median income or average number of members in a household (@fig-ward-demo).
 
+```{r}
+#| label: fig-ward-raccoon
+#| fig-cap: "Raccoon Behaviour Across Wards"
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-subcap: 
+#| - "Averaged Hourly Raccoon Behaviour with City Average (cyan)"
+#| - "Total Human-Raccoon Confrontations"
+#| layout-ncol: 2
 
+yyzwardlyavg <- read_csv("~/yyz-raccoon-activity/data/02-cleaned_data/yyz_avg_by_ward.csv")
+yyzwardlyhuman <- read_csv("~/yyz-raccoon-activity/data/02-cleaned_data/yyz_human_interactions_sum.csv")
 
+ggplot(yyzwardlyavg, aes(x=ward, y=units_observed)) + geom_bar(stat="identity") + theme_classic() + theme(axis.text.x = element_text(size = 6, angle = 90, hjust=1, vjust = 0.4), panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + xlab("Ward") + ylab("Average Raccoons / Hour") + geom_hline(yintercept = 6.2214259, colour = "cyan", linewidth = 0.5) 
 
+ggplot(yyzwardlyhuman, aes(x=ward, y=standoffs)) + geom_bar(stat="identity") + theme_classic() + theme(axis.text.x = element_text(size = 6, angle = 90, hjust=1, vjust = 0.4), panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + xlab("Ward") + ylab("Total Confrontations")
+
+```
+
+```{r}
+#| label: fig-ward-demo
+#| fig-cap: "Ward Demographics"
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-subcap: 
+#| - "Median Income"
+#| - "Average Household Size" 
+#| layout-ncol: 2
+
+yyzwardlyincome <- read_csv("~/yyz-raccoon-activity/data/02-cleaned_data/yyz_income_avg.csv")
+yyzwardlyhouse <- read_csv("~/yyz-raccoon-activity/data/02-cleaned_data/yyz_household_avg.csv")
+
+ggplot(yyzwardlyincome, aes(x=WARD_NAMES, y=...3)) + geom_bar(stat="identity") + theme_classic() + theme(axis.text.x = element_text(size = 6, angle = 90, hjust=1, vjust = 0.4)) + xlab("Ward") + ylab("Income")
+
+ggplot(yyzwardlyhouse, aes(x=WARD_NAMES, y=...3)) + geom_bar(stat="identity") + theme_classic() + theme(axis.text.x = element_text(size = 6, angle = 90, hjust=1, vjust = 0.4)) + xlab("Ward") + ylab("Persons per Household")
+
+```
+
+# Discussion
+
+General activity trends as seen in @fig-avg represent raccoons as nocturnal animals primarily motivated by the open presence of compost bins, as they appear to be active once a week, possibly corresponding to the weekly garbage schedule. The TRAI also suggests a direct correlation to the number of raccoon appearances with destructive behaviours, such as opening bins and interacting with humans. The correlation between complaints logged and human interactions with raccoons also reflects a combative relationship.
+
+There are number of factors that likely give away the false nature of this dataset, such as the date of publication and the contact email address being aprilfools2026\@toronto.ca (@cityoftoronto). However, there are also a number of notable characteristics of the data when further analysed as trends and aggregations, as noted in the Results section above. These include extremely abrupt shifts in raccoon occurrences as seen in @fig-avg-1, similar positive correlations in @fig-incidents, and extremely similar trends and outliers across across in @fig-ward-raccoon.
+
+If the TRAI was a legitimately collected dataset, these results may have reflected the behaviour of a raccoon population in a metropolitan area as it attempts to adapt. However, as a deliberately *created* dataset, these invented relationships reveal the "common-sense" assumptions that underlay the city's understanding of raccoons - namely, that they are a destructive and antagonistic force that directly impacts the population's quality of life. In news coverage and communications from the municipal government, managing the growing raccoon population is often phrased as a war, a problem, or a source of fear that must be mitigated (@cbcnews2014, @renzetti2015). However, @rosatte2000 argues that most intervention strategies have been unsuccessful in lowering raccoon populations across Ontario, despite additional factors such as widespread disease.
+
+As part of its creation, the TRAI determined eight wards to be significant outliers, compared to the smaller variance between recorded observances in the other wards (@fig-ward-raccoon). However, these differences in raccoon behaviour do not correlate with demographic data or other factors that have been studied as influencing raccoon distribution, such as types of residential zoning (@french2022). As such, why these specific wards were selected as sites of higher raccoon activity is unclear. Additional factors that are not available through the Ward Profiles, such as the number of restaurants or businesses as sources of food waste in each ward, may have greater significance and offer greater insights into how neighborhood infrastructures and urban planning influence raccoon populations. This randomness also suggests a gap in knowledge on how humans and cities affect raccoon behaviour.
+
+# Conclusion
+
+Under-recognised in the public conversation around Toronto raccoons is the fact that urban development has resulted in their displacement and is exacerbating their dangerous behaviours. The raccoon's presence is less of an invasion and more of an enduring that existed long before the neighbourhood itself. As @pacini-ketchabaw2016 argue, the raccoon and its flourishing in the urban environment unsettles the "perceived divide" of nature and civilization, where their "mischievous" and "trickster" ways demand urban residents, typically settler colonialists, to confront their entanglements with the ecosystem and the non-human actors around them.
+
+Despite being designed as a joke, the Toronto Raccoon Activity Index demonstrates a number of underlying beliefs of the relationship between the residents of Toronto and the raccoon populations. Through the design of data generation, raccoons are framed as destructive to property and intrusive to residents' day-to-day lives, requiring some type of governmental intervention via filing complaints to the city. Conversations around managing raccoon populations focus on direct interventions such as animal control, such as capture and relocation (@rosatte1992), or municipal legislation, such as changing waste management schedules (@powell2014), suggesting that raccoons are a type of pest or "trash" to be studied, acted upon, and ultimately managed or eliminated for human benefit. These implications are particularly interesting given that raccoons are one of the few species that have found significant success in the urban environment despite climate change and habitat destruction (@bateman2012). Raccoons are noted for their intelligence and adaptability, allowing them to effectively co-exist in urban environments that continue to be hostile to their existence (@lazure2024). These tensions are especially prevalent within the TRAI as a text that conveys both affection and distaste for this "native pest."
+
+The limitations of this dataset are difficult to assess, as the intention and methodology behind the false data's generation are not available for study. Further investigations may include comparing the TRAI to actual studies of Toronto's raccoon populations, as well as other impacts of raccoons on neighbourhoods, such as cases of rabies and *Baylisascaris procyonis* over a similar time period. Examinations of public sentiment towards raccoons and the City of Toronto's management of the population may also provide further socio-cultural understandings of the raccoon within the city.
+
+# Works Cited
