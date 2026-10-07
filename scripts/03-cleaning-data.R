@@ -37,35 +37,68 @@ write.csv(yyzdaily, file = "~/yyz-raccoon-activity/data/02-cleaned_data/yyz_dail
 yyzwardlyweight <- aggregate(raccoon$average_unit_weight_kg, by = list(raccoon$ward_id), FUN = mean)
 yyzwardlyweight <- rename(yyzwardlyweight, ward = Group.1, avg_raccoon_weight = x)
 
-#create average daily raccoon observances by ward and merge with ward demos
+#create average hourly raccoon observances by ward
 yyzwardlyavg <- aggregate(raccoon$units_observed, by = list(raccoon$ward_name), FUN = mean)
 yyzwardlyavg <- rename(yyzwardlyavg, ward = Group.1, units_observed = x)
 write.csv(yyzwardlyavg, file = "~/yyz-raccoon-activity/data/02-cleaned_data/yyz_avg_by_ward.csv")
 
+#create average confrontations and complaints per ward
+yyzwardlyhuman <- aggregate(raccoon$incidents_of_raccoon_human_standoff, by = list(raccoon$ward_name), FUN = sum)
+yyzwardlyhuman <- rename(yyzwardlyhuman, ward = Group.1, standoffs = x)
+yyzwardlycomplaint <- aggregate(raccoon$complaints_logged, by = list(raccoon$ward_name), FUN = sum)
+yyzwardlycomplaint <- rename(yyzwardlycomplaint, ward = Group.1, complaints = x)
+
+yyzwardlyhr <- cbind(yyzwardlyhuman, yyzwardlycomplaint) 
+yyzwardlyhr <- yyzwardlyhr[,c(1,2,4)]
+
+write.csv(yyzwardlyhr, file = "~/yyz-raccoon-activity/data/02-cleaned_data/yyz_human_interactions_sum.csv")
+
 #import dataset for demographics per ward
 warddemo <- read_csv("~/yyz-raccoon-activity/data/01-raw_data/raw_ward_demo.csv")
+WARD_NAMES <- c(
+  "Etobicoke North", "Etobicoke Centre", "Etobicoke-Lakeshore",
+  "Parkdale-High Park", "York South-Weston", "York Centre",
+  "Humber River-Black Creek", "Eglinton-Lawrence", "Davenport",
+  "Spadina-Fort York", "University-Rosedale", "Toronto-St. Paul's",
+  "Toronto Centre", "Toronto-Danforth", "Don Valley West",
+  "Don Valley East", "Don Valley North", "Willowdale",
+  "Beaches-East York", "Scarborough Southwest", "Scarborough Centre",
+  "Scarborough-Agincourt", "Scarborough North", "Scarborough-Guildwood",
+  "Scarborough-Rouge Park"
+)
 
 #average household size
 houseavg <- warddemo[133,]
-wardnames <- warddemo[125,]
-houseavg <- rbind(wardnames,houseavg)
+wardids <- warddemo[125,]
+houseavg <- rbind(wardids,houseavg)
 colnames(houseavg) = houseavg[1,]
 houseavg = houseavg[-1,-2]
 houseavg = houseavg[,-1]
 houseavg = houseavg[,-1]
-houseavg <- as.numeric(houseavg)
+houseavg = t(houseavg)
+houseavg <- cbind(WARD_NAMES, houseavg) 
+write.csv(houseavg, file = "~/yyz-raccoon-activity/data/02-cleaned_data/yyz_household_avg.csv")
 
 #median income 
 incomem <- warddemo[1384,]
-incomem <- rbind(wardnames,incomem)
+incomem <- rbind(wardids,incomem)
 colnames(incomem) = incomem[1,]
 incomem = incomem[-1,-2]
 incomem = incomem[,-1]
 incomem = incomem[,-1]
-incomem <- as.numeric(incomem)
+incomem = t(incomem)
+incomem <- cbind(WARD_NAMES, incomem)
+write.csv(incomem, file = "~/yyz-raccoon-activity/data/02-cleaned_data/yyz_income_avg.csv")
 
-#attach demo info to the data sources that categorise by ward_id
-
+#dwelling type
+dwelling <- warddemo[42:51,]
+colnames(dwelling) = dwelling[1,]
+dwelling = dwelling[-1,-1]
+dwelling <- tibble(dwelling, .name_repair = "unique") |> rename("Dwelling Type" = ...1)
+dwelling = dwelling[-1,]
+dwelling <- pivot_longer(dwelling, cols = starts_with("Ward"), names_to = "Ward", values_to = "Count")
+dwelling = dwelling[,c(1,3,4)]
+write.csv(dwelling, file = "~/yyz-raccoon-activity/data/02-cleaned_data/yyz_dwelling_type.csv")
 
 ########## Failed Projects Under Here ##########
 
@@ -111,12 +144,6 @@ income <- warddemo[1358:1379,]
 colnames(income) = income[1,]
 income = income[-1,-1]
 income <- tibble(income, .name_repair = "unique") |> rename("Income Bracket" = ...2)
-
-#dwelling type
-dwelling <- warddemo[42:51,]
-colnames(dwelling) = dwelling[1,]
-dwelling = dwelling[-1,-1]
-dwelling <- tibble(dwelling, .name_repair = "unique") |> rename("Dwelling Structure" = ...2)
 
 #household type
 family <- warddemo[125:131,]
